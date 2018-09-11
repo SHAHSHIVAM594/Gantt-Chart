@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--  ********************Json model form view**************  -->
+    <record id="json_model_view_form" model="ir.ui.view">
+        <field name="name">json.model.form.view</field>
+        <field name="model">json.model</field>
+        <field name="arch" type="xml">
+            <form string="Test Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="author"/>
+                        <field name="types"/>
+                        <field name="startdate"/>
+                        <field name="enddate"/>
+                        <field name="status"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--  ********************Display Json model window form**************  -->
+    <record id="json_model_disp_view" model="ir.actions.act_window">
+        <field name="name">My Form</field>
+        <field name="res_model">json.model</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--  ********************Display Json model tree form**************  -->
+    <record id="json_model_view_tree" model="ir.ui.view">
+        <field name="name">json.model.tree.view</field>
+        <field name="model">json.model</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="author"/>
+                <field name="types"/>
+                <field name="startdate"/>
+                <field name="enddate"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <template id="assets_backend" name="demo_on_21" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/demo_on_21/static/src/js/widget_demo.js"></script>
+        </xpath>
+    </template>
+
+    <record id="widget_display" model="ir.actions.client">
+        <field name="name">Widget Demo</field>
+        <field name="tag">widget_author</field>
+    </record>
+
+    <menuitem id="displayname_root" name="MyApp"/>
+
+    <menuitem id="display1" name="View from json" parent="displayname_root" sequence="3" action="json_model_disp_view"/>
+
+    <menuitem id="widget" name="Widget" parent="displayname_root" action="widget_display"/>
+
+</odoo>

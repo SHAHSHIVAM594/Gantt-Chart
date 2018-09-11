@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+   <t t-name="Author">
+        <div>
+            <input type="text" id="searchtxt" placeholder="Search here"/>
+            <input type="button" class="btn btn-primary" id="searchbtn" value="Search"/>
+        </div>
+    </t>
+</templates>
