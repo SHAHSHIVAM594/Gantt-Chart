@@ -7,27 +7,21 @@ var Widget = require('web.Widget');
 var ajax = require('web.ajax');
 
 var author = AbstractAction.extend({
-
     template: 'Author',
-
     cssLibs: [
         '/demo_on_21/static/src/css/style.css',
     ],
-
     jsLibs: [
         '/web/static/lib/nvd3/d3.v3.js',
         '/demo_on_21/static/src/js/libs/myd3.js',
         '/demo_on_21/static/src/js/libs/newd3.js',
     ],
-
     events: {
         'click #searchbtn': '_OnSearch',
     },
-
     willStart: function () {
         return $.when(ajax.loadLibs(this), this._super.apply(this, arguments));
     },
-
     _OnSearch: function(){
         this._rpc({
             route: '/authors/search',
@@ -49,14 +43,11 @@ var author = AbstractAction.extend({
                 "cancelled" : "bar",
                 "done" : "bar-killed"
             };
-
             var taskNames = ["Personal Activity", "Group Activity", "Fun", "Conference"];
-
             tasks.sort(function(a, b) {
                 return Math.abs(a.endDate - b.endDate)
             });
             var maxDate = tasks[tasks.length - 1].endDate;
-
             tasks.sort(function(a, b) {
                 return Math.abs(a.startDate - b.startDate);
             });
@@ -69,7 +60,5 @@ var author = AbstractAction.extend({
     }
 
 });
-
 core.action_registry.add('widget_author', author);
-
 });
