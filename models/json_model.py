@@ -9,8 +9,8 @@ class JsonParse(models.Model):
     name = fields.Char("Name")
     author = fields.Char("Author")
     types = fields.Char("Type")
-    startdate = fields.Datetime("Start Date")
-    enddate = fields.Datetime(string="End Date")
+    startdate = fields.Date("Start Date")
+    enddate = fields.Date("End Date")
     status = fields.Char("Status")
 
     @api.constrains('startdate', 'enddate')
